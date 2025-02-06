@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { servicesData } from "@/constants/servicesData";
+import { motion } from "framer-motion";
 
 export default function WhatWeOffer() {
   return (
@@ -24,20 +25,28 @@ export default function WhatWeOffer() {
 
         <div className="grid gap-6 md:grid-cols-2">
           {servicesData.map((service, index) => (
-            <Card key={index} className="border-0 bg-zinc-900">
-              <CardHeader>
-                <service.icon
-                  className="h-12 w-12 text-pink-500"
-                  strokeWidth={1.5}
-                />
-                <CardTitle className="text-xl font-bold text-white">
-                  {service.title}
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-zinc-400">{service.description}</p>
-              </CardContent>
-            </Card>
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.2 }}
+              viewport={{ once: true }}
+            >
+              <Card className="border-0 bg-zinc-900">
+                <CardHeader>
+                  <service.icon
+                    className="h-12 w-12 text-pink-500"
+                    strokeWidth={1.5}
+                  />
+                  <CardTitle className="text-xl font-bold text-white">
+                    {service.title}
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-zinc-400">{service.description}</p>
+                </CardContent>
+              </Card>
+            </motion.div>
           ))}
         </div>
       </div>

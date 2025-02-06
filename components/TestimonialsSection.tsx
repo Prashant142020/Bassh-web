@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { motion } from "framer-motion";
 
 const testimonials = [
   {
@@ -60,14 +61,21 @@ export default function TestimonialsSection() {
   return (
     <section className="container mx-auto px-4 py-16">
       <div className="space-y-8">
-        <p className="text-pink-500 font-medium text-center tracking-widest text-sm uppercase">
-          TESTIMONIALS
-        </p>
-        <h2 className="text-4xl md:text-5xl font-bold text-center">
-          DON&apos;T TAKE <span className="text-white">OUR</span>
-          <br />
-          WORD FOR IT
-        </h2>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
+        >
+          <p className="text-pink-500 font-medium text-center tracking-widest text-sm uppercase">
+            TESTIMONIALS
+          </p>
+          <h2 className="text-4xl md:text-5xl font-bold text-center">
+            DON&apos;T TAKE <span className="text-white">OUR</span>
+            <br />
+            WORD FOR IT
+          </h2>
+        </motion.div>
         <div className="relative max-w-4xl mx-auto">
           <Card
             className={`bg-zinc-900/50 p-8 backdrop-blur border border-zinc-800/50 rounded-xl transition-opacity duration-300 ${
