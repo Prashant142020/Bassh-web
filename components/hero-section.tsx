@@ -1,6 +1,5 @@
 "use client";
 import React from "react";
-import { Button } from "./ui/button";
 import { motion } from "framer-motion";
 import Navbar from "./navbar";
 import Image from "next/image";
@@ -22,7 +21,7 @@ const HeroSection = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
       >
-        <h1 className="text-sm font-light">LET'S DANCE & PARTY</h1>
+        <h1 className="text-sm font-light">LET&apos;S DANCE &amp; PARTY</h1>
         <h2 className="mt-2 text-5xl font-bold">GOOD VIBES, HERE AT CLUB X</h2>
         <div className="mt-6 flex space-x-4">
           <motion.button
